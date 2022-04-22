@@ -7,8 +7,6 @@ console.log(ImagesCard);
 
 galleryConteiner.insertAdjacentHTML('beforeend', ImagesCard);
 
-galleryConteiner.addEventListener('click', onGalleryConteinerClick)
-
 const gallery = new SimpleLightbox('.gallery a', { captionsData: "alt", captionDelay: 250 });
 
 function createImagesCard(images) {
@@ -24,11 +22,3 @@ function createImagesCard(images) {
   </a>`
 }).join('');
 };
-
-
-function onGalleryConteinerClick(event) {
-    event.preventDefault();
-        if (event.target.nodeName !== 'IMG'){
-        return gallery;
-    }    
-}; 

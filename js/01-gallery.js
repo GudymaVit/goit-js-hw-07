@@ -1,4 +1,4 @@
-import { galleryItems } from '/gallery-items.js';
+import { galleryItems } from './gallery-items.js';
 
 
 const galleryConteiner = document.querySelector('.gallery');
@@ -33,16 +33,16 @@ function onGalleryConteinerClick(event) {
         return;
     }
   
-  const imagaEl = event.target.dataset.source;
+  // const selectImagaEl = event.target.dataset.source;
   
-    const modal = basicLightbox.create(`<img src="${imagaEl}">`, {
+  const modal = basicLightbox.create(`<img src="${event.target.dataset.source}">`, {
     onShow: () => {
-      window.addEventListener('keydown',onKeyPress);
+      window.addEventListener('keydown', onKeyPress);
     },
-    onClose:()=>{
+    onClose: () => {
       window.addEventListener('keydown', onKeyPress)
     }
-  })
+  });
 
   function onKeyPress(e) {
     
@@ -51,7 +51,5 @@ function onGalleryConteinerClick(event) {
     }
   }
   modal.show();
-};    
-
-
+}; 
 
